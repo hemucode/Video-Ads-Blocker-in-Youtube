@@ -1,0 +1,29 @@
+{
+   "background": {
+      "service_worker": "background.js"
+   },
+   "content_scripts": [ {
+      "js": [ "lib/content.js" ],
+      "matches": [ "*://youtube.com/*", "*://www.youtube.com/*", "*://m.youtube.com/*" ]
+   } ],
+   "default_locale": "en",
+   "description": "__MSG_app_description__",
+   "homepage_url": "https://www.codehemu.com/p/videoadsblockerforyoutube.html",
+   "host_permissions": [ "*://*.youtube.com/*" ],
+   "icons": {
+      "1024": "data/icons/icon-1024.png",
+      "128": "data/icons/icon-128.png",
+      "16": "data/icons/icon-16.png",
+      "19": "data/icons/icon-19.png",
+      "32": "data/icons/icon-32.png",
+      "38": "data/icons/icon-38.png",
+      "512": "data/icons/icon-512.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArNEGphM88enMifb5P2xG6kNudA2PmcKZLYN7FEZq6tiNb0g1fHRNRNKMIEzRMpQVLl6yyY2HaeQjB2f+ZoVKlncjDnP6pIIN5Cv/NU8oOxEHlzJcP8YqS4szceBtd59CQkItfuxshkPUSugqITEamHgEMeN1NE3AwPoUfMKajWCmQkIcRkLY3yNj9R3jyLwQ5aoSUISHfVvV/snPBV+abBDaGu0XdRf9s5njCdajDJO1BpEnnc8QSwpvVIgkhSxL9Cavd3X0YMge/rk42a4QdLZVIda+qkItSPfkqI8y3FmZonHjnhnSmjF8m1jnqri3fICM51ZCtQtKLjBxZYwnoQIDAQAB",
+   "manifest_version": 3,
+   "name": "__MSG_app_name__",
+   "permissions": [ "storage" ],
+   "short_name": "videoads",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.1"
+}
