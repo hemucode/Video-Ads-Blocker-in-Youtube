@@ -1,0 +1,58 @@
+{
+   "actionTitle": {
+      "message": "Opções"
+   },
+   "disabled": {
+      "message": "Desabilitado"
+   },
+   "displayActionCountAsBadgeText": {
+      "description": "Boolean Option",
+      "message": "Mostrar a contagem de solicitações bloqueadas no selo"
+   },
+   "displayVideoBranding": {
+      "description": "Boolean Option",
+      "message": "Mostrar informações da extensão abaixo do vídeo"
+   },
+   "dontAskAgain": {
+      "message": "Não pergunte novamente"
+   },
+   "enabled": {
+      "message": "Habilitado"
+   },
+   "extensionDescription": {
+      "description": "The description of the application",
+      "message": "Deixe o YouTube sem anúncios. Ignorar anúncios automaticamente ao assistir a vídeos do YouTube."
+   },
+   "extensionName": {
+      "description": "The name of the application",
+      "message": "Bloqueador de anúncios em vídeo no Youtube™"
+   },
+   "extensionShortName": {
+      "description": "The short_name (maximum of 12 characters recommended) is a short version of the extension's name.",
+      "message": "Adb YouTube™"
+   },
+   "helpUsWithAReview": {
+      "message": "Ajude-nos com uma avaliação"
+   },
+   "later": {
+      "message": "Mais tarde"
+   },
+   "recommend": {
+      "description": "Shown by the recommend button",
+      "message": "Recomendar"
+   },
+   "timesaveInfo": {
+      "description": "Tells the user how many time he saved already.",
+      "message": "Bloqueador de anúncios em vídeo no Youtube™ salvou aprox. $savedTime$ da sua vida.",
+      "placeholders": {
+         "savedTime": {
+            "content": "$1",
+            "example": "42"
+         }
+      }
+   },
+   "videoBranding": {
+      "description": "Shown below a video",
+      "message": "Limpo por Bloqueador de anúncios em vídeo no Youtube™"
+   }
+}

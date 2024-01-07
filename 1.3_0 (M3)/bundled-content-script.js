@@ -62,7 +62,7 @@ async function init() {
       onVideoElementMutation(appendVideoIndicator);
     }
 
-    await Promise.all([injectStyles(), injectMainScript("lib/scriptlets.js")]);
+    await Promise.all([injectStyles(), injectMainScript()]);
 
     /**
     * @returns Promise
@@ -89,18 +89,74 @@ function injectStyles() {
 /**
  * @returns Promise
  */
-function injectMainScript(src) {
-  return new Promise((resolve, reject) => {
-    const script = document.createElement("script");
-    script.src = chrome.runtime.getURL(src);
-    script.onload = function () {
-      this.remove();
-      resolve();
-    };
-    script.onerror = reject;
-    (document.head || document.documentElement).appendChild(script);
-  });
+
+function runSkipping() {
+  document.querySelector(".ytp-ad-skip-button")?.click();
+  document.querySelector(".ytp-ad-skip-button-modern")?.click();
+  document.querySelector(".ytp-ad-survey")?.click();
 }
+
+/**
+ * @returns Promise
+ */
+
+function runRewind() {
+  try {
+    const videoPlayer = document.querySelector(".video-stream");
+    videoPlayer.currentTime = videoPlayer.duration - 0.1;
+    videoPlayer.paused && videoPlayer.play();
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+async function injectMainScript() {
+  const playerContainer = await waitForElement("#movie_player");
+  const observer = new MutationObserver(() => {
+    try {
+      const isAd =
+        playerContainer.classList.contains("ad-interrupting") ||
+        playerContainer.classList.contains("ad-showing");
+      const preText = document.querySelector(".ytp-ad-preview-text-modern");
+      if (isAd && preText) {
+        runSkipping();
+        runRewind();
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  });
+
+  observer.observe(playerContainer, {
+    subtree: !0,
+    childList: !0,
+    attributes: !0,
+  });
+
+}
+
+const waitForElement = async (selector) => {
+  return new Promise((resolve) => {
+    let observedElement = document.querySelector(selector);
+    if (observedElement) return resolve(observedElement);
+
+    let observer = new MutationObserver(() => {
+      let observedElement = document.querySelector(selector);
+      if (observedElement) {
+        observer.disconnect();
+        resolve(observedElement);
+      }
+    });
+
+    observer.observe(document.documentElement, {
+      childList: !0,
+      subtree: !0,
+    });
+  });
+};
+
+
+
 
 async function waitForDOMReady() {
   return new Promise((resolve) => {

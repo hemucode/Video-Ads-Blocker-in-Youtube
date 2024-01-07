@@ -49,9 +49,5 @@
    },
    "permissions": [ "declarativeNetRequest", "declarativeNetRequestFeedback", "storage", "scripting", "webNavigation", "tabs" ],
    "short_name": "__MSG_extensionShortName__",
-   "version": "1.2",
-   "web_accessible_resources": [ {
-      "matches": [ "*://*.youtube.com/*" ],
-      "resources": [ "lib/scriptlets.js" ]
-   } ]
+   "version": "1.3"
 }
